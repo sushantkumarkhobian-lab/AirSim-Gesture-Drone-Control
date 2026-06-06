@@ -40,7 +40,7 @@ When three fingers pointing upward are detected:
 - Landing procedure starts immediately
 - All other commands are ignored
 - Drone descends automatically
-- Command lock is removed after landing or timeout
+- Command lock is removed after timeout
 
 ## Technologies Used
 
