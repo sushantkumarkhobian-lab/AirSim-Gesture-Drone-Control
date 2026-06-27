@@ -1,79 +1,101 @@
-# Gesture Controlled Drone Navigation using AirSim
+# Gesture Controlled Drone Navigation using Project AirSim
 
-A real-time gesture-controlled drone navigation system built using Python, OpenCV, MediaPipe, and AirSim. The project enables intuitive drone control through hand gestures, allowing users to navigate a simulated drone without traditional controllers.
+A real-time gesture-controlled drone navigation system built using Python, OpenCV, MediaPipe, and Project AirSim. This project enables intuitive drone control through hand gestures, allowing users to navigate a simulated drone without traditional controllers.
+
+---
 
 ## Features
 
-- Real-time hand tracking using MediaPipe
-- Gesture-based drone control
-- Position hold (hover) functionality
-- Gesture-based takeoff
-- Gesture-based landing
-- Forward and backward navigation
-- Left and right navigation
-- Altitude control
-- Smooth landing mechanism
-- Live gesture recognition display
-- AirSim drone simulation environment
+* Real-time hand tracking using MediaPipe
+* Gesture-based drone control in simulation
+* Takeoff and landing using hand gestures
+* Forward, backward, left, and right navigation
+* Altitude control (ascend and descend)
+* Hover (position hold) using closed fist
+* Instant land + reset (clean session restart required)
+* Live gesture display on camera feed
+* Stable velocity-based movement (prevents altitude drift in horizontal motion)
+
+---
 
 ## Gesture Controls
 
-| Gesture | Action |
-|----------|----------|
-| Index Finger Up | Move Up / Takeoff |
-| Thumb Down | Move Down |
-| Index Finger Left | Move Left |
-| Thumb Right | Move Right |
-| Two Fingers Up | Move Forward |
-| Two Fingers Down | Move Backward |
-| Closed Fist | Hover at Current Position |
-| Three Fingers Up | Land |
+| Gesture           | Action                            |
+| ----------------- | --------------------------------- |
+| Index Finger Up   | Takeoff / Move Up                 |
+| Index Finger Down | Move Down                         |
+| Index Finger Left | Move Left                         |
+| Thumb Right       | Move Right                        |
+| Two Fingers Up    | Move Forward                      |
+| Two Fingers Down  | Move Backward                     |
+| Closed Fist       | Hover (Stop motion)               |
+| Three Fingers Up  | Land (Stop + Disarm + Disconnect) |
+
+---
 
 ## Hover Mode
 
-When a closed fist is detected, the drone stores its current position and continuously corrects its movement to remain at that location, creating a position-hold effect similar to real drone hover modes.
+When a closed fist is detected, the drone stops all motion by sending zero velocity commands continuously, maintaining a stable hover at its current position.
+
+---
 
 ## Landing Mode
 
-When three fingers pointing upward are detected:
+When **three fingers up** is detected:
 
-- Landing procedure starts immediately
-- All other commands are ignored
-- Drone descends automatically
-- Command lock is removed after timeout
+* Drone immediately stops all motion
+* Drone is disarmed
+* API control is disabled
+* Simulation connection is closed
+* Program exits cleanly
+
+> After landing, the system must be restarted to regain control. This ensures a clean and stable state reset in Project AirSim.
+
+---
 
 ## Technologies Used
 
-- Python
-- OpenCV
-- MediaPipe
-- AirSim
-- Computer Vision
-- Human-Computer Interaction
+* Python
+* OpenCV
+* MediaPipe
+* Project AirSim
+* Computer Vision
+* Human-Computer Interaction
+
+---
 
 ## Installation
 
-### AirSim Setup
+### Project AirSim Setup
 
-Please refer to the following repository for complete AirSim installation and setup instructions:
+Follow the official setup guide:
 
-https://github.com/sushantkumarkhobian-lab/AirSim-Drone-Navigation
+[https://github.com/sushantkumarkhobian-lab/AirSim-Drone-Navigation](https://github.com/sushantkumarkhobian-lab/AirSim-Drone-Navigation)
 
-### Install Required Libraries
+---
+
+### Install Dependencies
 
 ```bash
 pip install opencv-python
 pip install mediapipe
-pip install airsim
-
+pip install projectairsim
 ```
+
+---
+
+## Notes
+
+* Horizontal movement uses velocity control with fixed altitude to prevent drift
+* Gesture detection is based on MediaPipe hand landmarks with temporal smoothing
+* LAND gesture is designed as a hard stop for safety and clean reset
+* System requires a restart after landing for fresh initialization
+
+---
 
 ## Live Demonstration
 
-<img width="1000" alt="Demo_Output" src="https://github.com/user-attachments/assets/ab6f7f97-3619-439a-a031-4ba09d95e06d" />
-
-
-
+<img width="400" height="206" alt="Recording 2026-06-27 171208 (1)" src="https://github.com/user-attachments/assets/ac0fa6f3-85f4-40c9-afa1-175f1596a3cb" />
 
 
 
