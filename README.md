@@ -66,13 +66,6 @@ When **three fingers up** is detected:
 
 ## Installation
 
-### Project AirSim Setup
-
-Follow the official setup guide:
-
-[https://github.com/sushantkumarkhobian-lab/AirSim-Drone-Navigation](https://github.com/sushantkumarkhobian-lab/AirSim-Drone-Navigation)
-
----
 
 ### Install Dependencies
 
