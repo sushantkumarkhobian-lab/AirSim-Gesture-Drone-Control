@@ -95,9 +95,9 @@ pip install projectairsim
 
 ## Live Demonstration
 
-<img width="400" height="206" alt="Recording 2026-06-27 171208 (1)" src="https://github.com/user-attachments/assets/ac0fa6f3-85f4-40c9-afa1-175f1596a3cb" />
+<img width="1000" alt="Recording 2026-06-27 171208 (1)" src="https://github.com/user-attachments/assets/ac0fa6f3-85f4-40c9-afa1-175f1596a3cb" />
 
-<img width="1000" alt="Demo_Output" src="https://github.com/user-attachments/assets/ab6f7f97-3619-439a-a031-4ba09d95e06d" />
+
 
 
 
